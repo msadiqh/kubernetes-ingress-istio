@@ -323,7 +323,7 @@ Bookinfo application: (yamls\istio)
 ===========================================================================================================================================================================================
 11 Example use cases of ISTIO:(reviews microservice versions: v1-blank, v2-black stars, v3-red stars)
 
-   11.1 The reviews microservice in bookinfo app has three version(v1,v2,v3), 
+   11.1 The reviews microservice in bookinfo app has three version(v1,v2,v3), lets see how to split the traffic among different versions of microservice.
         lets create a virtualservice to send all the traffic coming from productpage to reviews v2 version (all black stars)
         and deny to v1 and v3.
   
@@ -332,6 +332,8 @@ Bookinfo application: (yamls\istio)
        Generate traffic to bookinfo application using below command and visualize the traffic flow in kiali dashboard.
   
        watch curl -s -o /dev/null http://bookinfo-istio.devops.com
+       
+   11.2 Route the traffic to a particular microservice based on the header value.
   
 
 

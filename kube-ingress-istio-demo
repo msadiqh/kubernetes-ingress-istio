@@ -217,7 +217,7 @@
       
   7.5 Create A record DNS entry 'istio-ingressgateway.devops.com' with external IP assigned by metallb
   
-  7.6 While ISTIO installation with demo profile, grafana and kiali addons were enabled.
+  7.6 While ISTIO installation with demo profile, grafana and kiali addons were enabled by default.
   
       7.6.1 Setup grafana in istio service mesh.
             kubectl get svc -n istio-system and edit grafana service to 'type=Loadbalancer'
@@ -317,16 +317,21 @@ Bookinfo application: (yamls\istio)
 		 
   10.7 Create CNAME DNS entry for istio-ingressgateway in dns server to access the application.
 	
-  10.8 Access the application http://bookinfo-istio.devops.com
-	
-Example use cases of ISTIO:(reviews microservice versions: v1-blank, v2-black stars, v3-red stars)
+  10.8 Access the application http://bookinfo-istio.devops.com/productpage
+  
+===========================================================================================================================================================================================
+===========================================================================================================================================================================================
+11 Example use cases of ISTIO:(reviews microservice versions: v1-blank, v2-black stars, v3-red stars)
 
-* The reviews microservice in bookinfo app has three version(v1,v2,v3), 
-  lets create a virtualservice to send all the traffic coming from productpage to reviews v2 version (all black stars)
-  and deny to v1 and v3, Visualize the traffic flow in kiali dashboard.
+   11.1 The reviews microservice in bookinfo app has three version(v1,v2,v3), 
+        lets create a virtualservice to send all the traffic coming from productpage to reviews v2 version (all black stars)
+        and deny to v1 and v3.
   
-  kubectl apply -f virtual-service-all-v2.yaml -n bookinfo-istio
+       kubectl apply -f virtual-service-all-v2.yaml -n bookinfo-istio
   
+       Generate traffic to bookinfo application using below command and visualize the traffic flow in kiali dashboard.
+  
+       watch curl -s -o /dev/null http://bookinfo-istio.devops.com
   
 
 
